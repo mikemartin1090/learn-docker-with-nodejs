@@ -1,0 +1,22 @@
+version: "3"
+services:
+  node-app:
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+    volumes:
+      - ./:/app:ro
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - MONGO_IP=mongo
+      - MONGO_PORT=27017
+      - MONGO_USER=mikemart
+      - MONGO_PASSWORD=complicated
+    command: npm run dev
+
+  mongo:
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mikemart
+      - MONGO_INITDB_ROOT_PASSWORD=complicated
