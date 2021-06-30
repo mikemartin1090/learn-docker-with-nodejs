@@ -1,6 +1,6 @@
 All of this work is based on this YouTube video: https://www.youtube.com/watch?v=9zUHg7xjIqQ&t=2283s
 
-Currently at 2:33:00 minute mark.
+Currently at 2:51:30 minute mark.
 
 ### Fun facts
 - `-p` - port mapping. 3000:3000. The right hand side is traffic destined for container, probably what your express server is listening for. While the left value is what ports your host should listen on to forward to the docker container.
@@ -21,3 +21,4 @@ Currently at 2:33:00 minute mark.
 - You can often use the `docker-compose down -v` option to remove volumes, HOWEVER you should be careful not to remove volumes that you care about. For example, a mongodb volume that contains data you want to keep!
 - docker-compose does a simple comparison since the last time it was run, so if something in your code changes for production...you'll likely want to pass the `--build` parameter to re-build the container with latest code. `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build`
 - A config directory and file seem like a good tool to know what environment variables are in use rather than a .env file! Although, you're really just moving the variables over to a docker-compose in this case, I still think it's a good way to point out what are required variables.
+- Routes and controllers are fascinating in NodeJS. That's what today's session was focused on.
